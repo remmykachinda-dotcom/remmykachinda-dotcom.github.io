@@ -47,9 +47,10 @@ else if(l.includes('harisha')||l.includes('kuhara')||l.includes('tumbo')) a="�
 else if(l.includes('hatari')||l.includes('dalili')||l.includes('damu')||l.includes('kichwa')) a="⚠️ DALILI ZA HATARI KWA MAMA: Kutokwa damu nyingi, kichwa kuuma sana, kuvimba uso/mikono, homa kali, mtoto kutocheza tumboni, maji kutoka kabla ya wakati. Ukiona hizi, nenda hospitali MARA MOJA au piga 114.";
 else if(l.includes('chanjo')||l.includes('vaccine')) a="💉 CHANJO YA MTOTO: Mtoto anapaswa kupata chanjo kwa ratiba ya Wizara ya Afya - wakati wa kuzaliwa, wiki 6, wiki 10, wiki 14, miezi 9 na zaidi. Beba kadi ya chanjo kila ukienda kliniki. Chanjo ni BURE na inamlinda mtoto.";
 else if(l.includes('mambo')||l.includes('habari')||l.includes('salam')) a="Mambo! Karibu Mama Salama. Niko hapa kukusaidia. Uliza kuhusu mimba, lishe, mtoto au chanjo.";
-box.innerHTML+='<div class="msg ai">'+a+'</div>';
-document.getElementById('q').value=''; box.scrollTop=box.scrollHeight;
-}
+else if(l.includes("polio")) a="CHANJO YA POLIO: Matone MDOMONI na sindano PAJA LA KUSHOTO. Wiki 6, 10, 14 na Miezi 9. Inazuia KUPOOZA.";
+else if(l.includes("hpv")) a="CHANJO YA HPV: Inachomwa MKONO WA KULIA JUU. Wasichana miaka 9-14, Dozi 2. Inazuia SARATANI YA SHINGO YA KIZAZI.";
+else if(l.includes("surua")) a="CHANJO YA SURUA: Inachomwa MKONO WA KUSHOTO JUU. Miezi 9 na 18. Inazuia SURUA na RUBELLA.";
+box.innerHTML += "<div class='msg'><b>AI:</b> "+a+"</div>";''; box.scrollTop=box.scrollHeight;
+document.getElementById("q").value="";box.scrollTop=box.scrollHeight;
 </script>
 </body>
-</html>
