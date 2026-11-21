@@ -1,107 +1,14 @@
+
 <!DOCTYPE html>
-<html lang="sw">
+<html>
 <head>
-<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mama Salama na Mtoto AI</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}
-body{background:#fdf2f8}
-.top{background:#fff;display:flex;align-items:center;justify-content:space-between;padding:12px 18px}
-.logo{display:flex;align-items:center;gap:8px}
-.logo-text{font-weight:900;font-size:20px;line-height:1.1;color:#111}
-nav{display:flex;gap:18px;align-items:center;font-weight:700;font-size:14px}
-nav a{color:#111;text-decoration:none}
-.btn{background:#f06292;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none}
-.hero{background:#fde7f0;display:flex;gap:20px;padding:22px 18px;align-items:center}
-.hero-left{flex:1}
-.pill{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #f8bbd0;padding:6px 12px;border-radius:20px;color:#d81b60;font-size:13px;font-weight:700}
-h1{font-size:34px;line-height:1.1;margin:14px 0;color:#111}
-.open{background:#f06292;color:#fff;border:none;padding:11px 18px;border-radius:20px;font-weight:800;font-size:15px;margin-bottom:12px}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
-.badges span{background:#fff;border:1px solid #eee;padding:6px 10px;border-radius:20px;font-size:12px;font-weight:600}
-.stats{display:flex;gap:22px}
-.stats div{text-align:center}
-.stats b{color:#d81b60;font-size:20px}
-.stats p{font-size:13px;color:#333}
-.hero-right{flex:1}
-.hero-right img{width:100%;border-radius:18px;display:block}
-.cards{display:flex;gap:14px;padding:16px 18px;background:#fdf2f8}
-.card{flex:1;background:#fff;border-radius:14px;padding:18px 10px;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,0.06)}
-.card .icon{height:42px;display:flex;align-items:center;justify-content:center;margin-bottom:8px}
-.card b{font-size:14px}
-.who{margin:0 18px 14px;background:#fde7f0;border-radius:12px;text-align:center;padding:12px;font-weight:700;font-size:13px}
-footer{background:#f06292;color:#fff;text-align:center;padding:12px;font-size:12px;font-weight:700}
-@media(max-width:700px){.hero{flex-direction:column}h1{font-size:28px}nav a{display:none}.cards{flex-wrap:wrap}.card{flex:1 1 40%}}
+body{margin:0; padding:0; background:#ffeef2;}
+img{width:100%; display:block;}
 </style>
 </head>
 <body>
-
-<div class="top">
-  <div class="logo">
-    <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#F06292" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19.5 12.572 12 20l-7.5-7.428A5 5 0 1 1 12 6.006a5 5 0 1 1 7.5 6.566Z"/><path d="M9 9h2v2h2v2h-2v2H9v-2H7v-2h2Z" fill="#F06292" stroke="none"/></svg>
-    <div class="logo-text">Mama Salama<br>na Mtoto AI</div>
-  </div>
-  <nav>
-    <a href="#">Kuhusu</a>
-    <a href="#">Huduma</a>
-    <a href="#">Msaada</a>
-    <a href="#">Ingia</a>
-    <a href="#" class="btn">Pakua App</a>
-  </nav>
-</div>
-
-<div class="hero">
-  <div class="hero-left">
-    <div class="pill">♡ AI kwa Afya ya Mama & Mtoto - Tanzania</div>
-    <h1>Afya ya Mama na Mtoto<br>Mikononi Mwako</h1>
-    <button class="open">Fungua App Sasa</button>
-    <div class="badges">
-      <span>✓ Bila malipo</span>
-      <span>🛡 Faragha inalindwa</span>
-      <span>🕒 Inapatikana 24/7</span>
-    </div>
-    <div class="stats">
-      <div><b>50,000+</b><p>Wazazi</p></div>
-      <div><b>200+</b><p>Madaktari</p></div>
-      <div><b>Tangu 2024</b></div>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img src="IMG-20261121-WA0002.jpg">
-  </div>
-</div>
-
-<div class="cards">
-  <div class="card">
-    <div class="icon">
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="none"><rect x="2" y="5" width="15" height="11" rx="2" fill="#FFE8E0" stroke="#F47A4A" stroke-width="1.5"/><path d="M5 8h9M5 11h6" stroke="#F47A4A" stroke-width="1.5" stroke-linecap="round"/><path d="M7 16l-2 3 4-3" fill="#F47A4A"/><path d="M18 2l.7 2.3L21 5l-2.3.7L18 8l-.7-2.3L15 5l2.3-.7Z" fill="#F9A825"/><path d="M21 9l.5 1.5L23 11l-1.5.5L21 13l-.5-1.5L19 11l1.5-.5Z" fill="#F9A825"/></svg>
-    </div>
-    <b>Ushauri wa AI 24/7</b>
-  </div>
-  <div class="card">
-    <div class="icon">
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="none"><path d="M20 4C10 4 4 10 4 20c10 0 16-6 16-16Z" fill="#4CAF50"/><path d="M4 20C7 15 11 10 18 6" stroke="#2E7D32" stroke-width="1.2" stroke-linecap="round"/></svg>
-    </div>
-    <b>Lishe & Ustawi</b>
-  </div>
-  <div class="card">
-    <div class="icon">
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="none"><path d="M14 3l7 7-8 8-7-7 8-8Z" fill="#E3F2FD" stroke="#2196F3" stroke-width="1.2"/><path d="M17 6l1.5 1.5M19 4l.5 1" stroke="#2196F3" stroke-width="1.2" stroke-linecap="round"/><rect x="6" y="12" width="8" height="2" transform="rotate(-45 10 13)" fill="#2196F3"/><path d="M3 18l3-3 2 2-3 3Z" fill="#90CAF9"/></svg>
-    </div>
-    <b>Ukumbusho wa Chanjo</b>
-  </div>
-  <div class="card">
-    <div class="icon">
-      <svg width="42" height="42" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-9-9c-1.2-2.8.5-6 3.5-6 2 0 3.5 1.2 5.5 3 2-1.8 3.5-3 5.5-3 3 0 4.7 3.2 3.5 6-2 4.5-9 9-9 9Z" fill="#E53935"/><path d="M4 12h3l2-3 2 5 2-3h7" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
-    <b>Ufuatiliaji wa Afya</b>
-  </div>
-</div>
-
-<div class="who">🇹🇿 🌐 WHO &nbsp; Taarifa kwa mujibu wa miongozo ya WHO & Wizara ya Afya Tanzania</div>
-
-<footer>Imetengenezwa na Mheshimiwa Remmy Kachinda - © 2026 Mama Salama na Mtoto AI Dodoma, Tanzania</footer>
-
+<img src="IMG-20261121-WA0002.jpg">
 </body>
-  </html>
+</html>
