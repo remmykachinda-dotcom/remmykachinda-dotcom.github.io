@@ -1,14 +1,54 @@
-
 <!DOCTYPE html>
-<html>
+<html lang="sw">
 <head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mama Salama na Mtoto AI</title>
 <style>
-body{margin:0; padding:0; background:#ffeef2;}
-img{width:100%; display:block;}
+body{font-family:system-ui,sans-serif;background:#fff7f9;margin:0;padding:0;text-align:center}
+img{width:100%;max-width:700px;display:block;margin:auto}
+.chat{max-width:700px;margin:10px auto;background:white;border-radius:16px;padding:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);text-align:left}
+#box{height:260px;overflow-y:auto;border:1px solid #eee;border-radius:12px;padding:10px;margin-bottom:10px;background:#fffafa}
+.msg{margin:8px 0;padding:8px 12px;border-radius:12px}
+.me{background:#e11d48;color:white;text-align:right}
+.ai{background:#f1f1f1}
+input{width:75%;padding:12px;border-radius:20px;border:1px solid #ddd}
+button{padding:12px 18px;border-radius:20px;border:none;background:#e11d48;color:white;font-weight:bold}
+.chips button{background:#ffe4e6;color:#e11d48;margin:3px}
 </style>
 </head>
 <body>
 <img src="IMG-20261121-WA0002.jpg">
+<div class="chat">
+<h3 style="color:#e11d48;text-align:center">💬 Uliza Mama Salama AI</h3>
+<div id="box"><div class="msg ai">Karibu Mama Salama! Uliza kuhusu mimba, lishe, mtoto kuharisha, dalili za hatari, au chanjo. Mfano: Andika "nina mimba"</div></div>
+<div class="chips">
+<button onclick="ask('Nina mimba miezi 5 nile nini?')">🤰 Lishe ya mimba</button>
+<button onclick="ask('Mtoto anaharisha nifanye nini?')">👶 Mtoto anaharisha</button>
+<button onclick="ask('Dalili za hatari ni zipi?')">⚠️ Dalili za hatari</button>
+<button onclick="ask('Chanjo ya mtoto')">💉 Chanjo</button>
+</div>
+<br>
+<input id="q" placeholder="Andika swali lako hapa...">
+<button onclick="send()">Tuma</button>
+<p style="font-size:11px;color:#888;text-align:center">Taarifa kwa mujibu wa miongozo ya WHO na Wizara ya Afya Tanzania. Si badala ya daktari. Dharura piga 114. Imetengenezwa na Mheshimiwa Remmy Kachinda</p>
+</div>
+<script>
+function ask(t){document.getElementById('q').value=t;send();}
+function send(){
+let q=document.getElementById('q').value; if(!q) return;
+let box=document.getElementById('box');
+box.innerHTML+='<div class="msg me">'+q+'</div>';
+let a="Asante kwa swali lako. Kwa afya ya mama na mtoto, tafadhali nenda hospitali karibu au piga 114 kama ni dharura. Unaweza pia kuuliza kuhusu lishe, chanjo, au dalili za hatari.";
+let l=q.toLowerCase();
+if(l.includes('mimba')||l.includes('lishe')||l.includes('nile')||l.includes('chakula')) a="🤰 LISHE YA MIMBA: Kula vyakula vya aina mbalimbali - mboga za majani, matunda, maharage, mayai, samaki, uji. Kunywa maji mengi. Epuka pombe, sigara na dawa bila agizo la daktari. Nenda kliniki kila mwezi.";
+else if(l.includes('harisha')||l.includes('kuhara')||l.includes('tumbo')) a="👶 MTOTO ANAHARISHA: Mpe maji mengi na ORS mara kwa mara ili asipungukiwe maji. Mnyonyeshe mara nyingi. Usimpe dawa ya kuharisha bila daktari. Kama ana homa kali, damu kwenye kinyesi, au amechoka sana - nenda hospitali HARAKA.";
+else if(l.includes('hatari')||l.includes('dalili')||l.includes('damu')||l.includes('kichwa')) a="⚠️ DALILI ZA HATARI KWA MAMA: Kutokwa damu nyingi, kichwa kuuma sana, kuvimba uso/mikono, homa kali, mtoto kutocheza tumboni, maji kutoka kabla ya wakati. Ukiona hizi, nenda hospitali MARA MOJA au piga 114.";
+else if(l.includes('chanjo')||l.includes('vaccine')) a="💉 CHANJO YA MTOTO: Mtoto anapaswa kupata chanjo kwa ratiba ya Wizara ya Afya - wakati wa kuzaliwa, wiki 6, wiki 10, wiki 14, miezi 9 na zaidi. Beba kadi ya chanjo kila ukienda kliniki. Chanjo ni BURE na inamlinda mtoto.";
+else if(l.includes('mambo')||l.includes('habari')||l.includes('salam')) a="Mambo! Karibu Mama Salama. Niko hapa kukusaidia. Uliza kuhusu mimba, lishe, mtoto au chanjo.";
+box.innerHTML+='<div class="msg ai">'+a+'</div>';
+document.getElementById('q').value=''; box.scrollTop=box.scrollHeight;
+}
+</script>
 </body>
 </html>
