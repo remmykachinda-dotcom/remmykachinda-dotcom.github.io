@@ -57,6 +57,7 @@ else if(l.includes("pcv")||l.includes("nyumonia")) a="CHANJO YA PCV: Inakinga NY
 else if(l.includes("surua")) a="CHANJO YA SURUA: Inakinga SURUA na RUBELLA. Hutolewa MKONO WA KUSHOTO.";
 else if(l.includes("hpv")) a="CHANJO YA HPV: Inakinga SARATANI YA MLANGO WA KIZAZI. Hutolewa kwa wasichana, MKONO.";
 else if(l.includes("tetanus")||l.includes("pepopunda")) a="CHANJO YA TETANUS: Inakinga PEPOPUNDA. Hutolewa kwa mama mjamzito na majeruhi, MKONO.";box.innerHTM+= "<div class='msg'><b>AI:</b> "+a+"</div>";''; box.scrollTop=box.scrollHeight;else if(l.includes("bcg")) a="CHANJO YA BCG: Inakinga KIFUA KIKUU (TB). Hutolewa mara baada ya kuzaliwa, MKONO WA KULIA.";
- box.innerHTML+='<div class="msg ai">'+a+'</div>';
-}</script>
-</body>
+ box.innerHTML+='<div class="msg ai">'+a+'</div>'; 
+ document.getElementById("q").value="";box.scrollTop=box.scrollHeight;
+}
+</script>
