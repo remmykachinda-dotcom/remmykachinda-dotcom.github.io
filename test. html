@@ -1,0 +1,13 @@
+<h2>Jaribio</h2>
+<div id="box" style="border:1px solid black;height:200px;overflow:auto"></div>
+<input id="q" placeholder="Andika chanjo">
+<button onclick="send()">Tuma</button>
+<script>
+function send(){
+let q=document.getElementById('q').value;
+let box=document.getElementById('box');
+box.innerHTML+='<div>'+q+'</div>';
+box.innerHTML+='<div>Jibu: Chanjo ni muhimu, mpeleke mtoto hospitali.</div>';
+document.getElementById('q').value='';
+}
+</script>
