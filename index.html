@@ -1,100 +1,65 @@
-
 <!DOCTYPE html>
 <html lang="sw">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Afya ya Mama na Mtoto</title>
+<title>MamaCare - Afya ya Mama na Mtoto</title>
 <style>
 body{font-family:Arial;background:#e8f5e9;margin:0;padding:10px}
 .wrap{max-width:600px;margin:auto;background:#fff;border-radius:15px;overflow:hidden;box-shadow:0 0 10px #aaa}
-.top{background:#e91e63;color:#fff;padding:15px;text-align:center}
-.top h2{margin:0}
-.chat{padding:10px;height:420px;overflow-y:auto;background:#f9f9f9}
-.msg{padding:10px;border-radius:10px;margin:8px 0;max-width:90%;line-height:1.5;white-space:pre-line}
-.me{background:#c8e6c9;margin-left:auto;text-align:right}
-.ai{background:#fff;border:1px solid #ddd}
-.chips{display:flex;flex-wrap:wrap;gap:5px;margin:10px 0}
-.chips button{background:#e8f5e9;border:1px solid #2e7d32;border-radius:20px;padding:6px 10px;cursor:pointer}
+.top{background:#2e7d32;color:#fff;padding:15px;text-align:center}
+#chat{padding:15px;height:400px;overflow-y:auto;background:#f9f9f9}
+.msg{margin:8px 0;padding:10px;border-radius:10px;white-space:pre-line}
+.me{background:#c8e6c9;text-align:right}
+.bot{background:#fff;border:1px solid #ddd}
 .input{display:flex;gap:5px;padding:10px}
-.input input{flex:1;padding:12px;border-radius:20px;border:1px solid #ccc}
-.input button{background:#e91e63;color:#fff;border:none;border-radius:20px;padding:12px 18px}
+input{flex:1;padding:12px;border-radius:10px;border:1px solid #ccc}
+button{padding:12px;border-radius:10px;background:#2e7d32;color:#fff;border:none}
+.btns{display:flex;flex-wrap:wrap;gap:5px;padding:0 10px 10px}
+.btns button{background:#fff;color:#000;border:1px solid #2e7d32}
 </style>
 </head>
 <body>
 <div class="wrap">
-<div class="top"><h2>🤰 Afya ya Mama na Mtoto</h2><p>Uliza chochote kuhusu mimba, chanjo, kunyonyesha</p></div>
-<div class="chat" id="box">
-<div class="msg ai">Karibu! Uliza kuhusu chanjo, lishe, kangaroo, maambukizi, kunyonyesha, dalili za hatari, uzazi salama, vifo, maandalizi ya kujifungua.</div>
-<div class="chips">
-<button onclick="ask('Chanjo zote za mtoto')">💉 Chanjo zote</button>
-<button onclick="ask('Kangaroo kwa mtoto njiti')">👶 Kangaroo</button>
-<button onclick="ask('Uzazi salama ni nini')">🏥 Uzazi Salama</button>
-<button onclick="ask('Takwimu za vifo vya uzazi')">📊 Takwimu Vifo</button>
-<button onclick="ask('Maandalizi ya kujifungua')">🎒 Maandalizi Kujifungua</button>
-<button onclick="ask('Lishe kwa mama mjamzito')">🥗 Lishe Mjamzito</button>
-<button onclick="ask('Lishe kwa mtoto chini ya miaka mitano')">🥣 Lishe Mtoto</button>
-<button onclick="ask('Dalili za hatari kwa mama mjamzito')">⚠️ Hatari Mjamzito</button>
+<div class="top"><h2>🤰 Afya ya Mama na Mtoto</h2><p>Msaidizi wako wa Afya - Andika swali au chagua hapa chini</p></div>
+<div class="btns">
+<button onclick="ask('Chanjo za mtoto')">💉 Chanjo za mtoto</button>
+<button onclick="ask('Mimba')">🤰 Mimba</button>
+<button onclick="ask('Lishe bora')">🥦 Lishe bora</button>
+<button onclick="ask('Dalili za hatari')">⚠️ Dalili za hatari</button>
+<button onclick="ask('Kunyonyesha')">🤱 Kunyonyesha</button>
+<button onclick="ask('Uzazi wa mpango')">👨‍👩‍👧 Uzazi wa mpango</button>
 </div>
-</div>
+<div id="chat"><div class="msg bot">Karibu! Mimi ni MamaCare. Andika swali lako hapa chini, kwa mfano: chanjo, mimba, lishe.</div></div>
 <div class="input"><input id="q" placeholder="Andika swali hapa..."><button onclick="send()">Tuma</button></div>
 </div>
 <script>
-function ask(t){document.getElementById('q').value=t;send();}
+function addMsg(text, cls){
+  let d = document.createElement("div");
+  d.className = "msg " + cls;
+  d.textContent = text;
+  document.getElementById("chat").appendChild(d);
+  document.getElementById("chat").scrollTop = 99999;
+}
+function ask(txt){
+  document.getElementById("q").value = txt;
+  send();
+}
 function send(){
-let q=document.getElementById('q').value.trim();
-if(!q) return;
-let box=document.getElementById('box');
-box.innerHTML+='<div class="msg me">'+q+'</div>';
-let l=q.toLowerCase();
-let a="Asante kwa swali lako. Kwa afya ya mama na mtoto, tafadhali nenda kliniki mapema. Kama ni dharura piga simu kituo cha afya kilicho karibu.";
-if(l.includes('maandalizi')||l.includes('kujiandaa kujifungua')||l.includes('mifuko ya kujifungua')||l.includes('nifanye nini kabla ya kujifungua')||l.includes('kujifungua nijiandae')){
-a="🎒 MAANDALIZI YA KUJIFUNGUA - JIANDae MAPEMA KUANZIA MWEZI WA 7:\n\n1. CHAGUA MAHALI PA KUJIFUNGULIA:\nJifungulie hospitali / kituo cha afya, si nyumbani. Jua hospitali iko wapi, na namba ya gari / bodaboda ya dharura. Weka pesa ya gari kando.\n\n2. MFUKO WA KUJIFUNGULIA (Beba ukiwa na miezi 8):\nKWA MAMA: Kanga 3-4, taulo, sabuni, pedi kubwa / pampers za watu wazima, nguo za kubadilisha, chupi, mswaki, dawa ya meno, kadi ya kliniki, kitambulisho, pesa kidogo.\nKWA MTOTO: Kanga / shuka la mtoto, nguo za mtoto 3-4, kofia, soksi, nepi / pampers za mtoto, taulo laini.\nKWA KULA: Maji safi, biskuti / uji wa papo hapo, matunda.\n\n3. MTU WA KUKUSAIDIA:\nChagua mtu 1 wa kuambatana nawe hospitali - mume, mama, dada. Mwambie mapema. Kama una watoto wengine, nani atawabaki?\n\n4. PESA NA DAMU:\nWeka pesa ya dharura kando (kwa gari, dawa, damu). Kama una damu adimu, jua ndugu wa kukuchangia damu. Weka namba za daktari / mkunga.\n\n5. MPANGO WA DHARURA:\nKama damu inatoka, maji yanavunjika, presha inapanda, mtoto hachezi - usisubiri. Nenda hospitali mara moja, usiku au mchana.\n\n6. MWILI NA AKILI:\nKula vizuri, kunywa maji, pumzika, usibebe mizigo mizito. Nenda kliniki mara 8. Uliza mkunga maswali yote unayogopa.\n\n7. BAADA YA KUJIFUNGUA:\nJua utarudi kliniki lini - siku 3, wiki 1-2, wiki 6. Jua uzazi wa mpango utakaoanza.\n\nMAMA ALIYEJIANDAA ANAOKOA MAISHA YAKE NA YA MTOTO WAKE.";
-}
-else if(l.includes('uzazi salama')||l.includes('maana ya uzazi')){
-a="🏥 UZAZI SALAMA NI NINI? MAANA YAKE:\nUzazi Salama ni huduma na mazingira yanayomhakikishia mama na mtoto kuwa salama kuanzia mimba, wakati wa kujifungua, hadi baada ya kujifungua.\n1. MIMBA SALAMA: Kliniki mara 8, pima presha, damu, HIV, kaswende, chanjo ya pepupunda, vidonge vya damu.\n2. KUJIFUNGUA SALAMA: Kujifungua hospitali, kwa mkunga aliyefundishwa, vifaa safi, si nyumbani peke yako.\n3. BAADA YA KUJIFUNGUA: Chunguzwa siku 3, wiki 1-2, wiki 6. Pata ushauri wa uzazi wa mpango.\n4. DHARURA INAPATIKANA: Gari / rufaa inapatikana haraka.\n5. HAKI YA MAMA: Mama anaheshimiwa, anaambiwa kila kinachofanyika.\nLENGO: Hakuna mama wala mtoto anayepaswa kufa kwa sababu ingeweza kuzuilika.";
-}
-else if(l.includes('takwimu')||l.includes('wanafariki wangapi')||l.includes('vifo vitokanavyo')){
-a="📊 TAKWIMU ZA VIFO VITOKANAVYO NA UZAZI - TANZANIA (TDHS 2022 / WHO):\n1. VIFO VYA WAMAMA: Wamama 104 wanafariki kwa kila vizazi hai 100,000.\nMaana: Kati ya wamama 100,000 wanaojifungua, 104 wanapoteza maisha kutokana na mimba, kujifungua, au baada ya kujifungua.\n2. WATOTO WACHANGA (0-28 siku): Watoto 24 wanafariki kwa kila vizazi hai 1,000.\nMaana: Kati ya watoto 1,000 wanaozaliwa hai, 24 wanafariki kabla ya mwezi 1.\n3. CHINI YA MIAKA MITANO: Watoto 43 wanafariki kwa kila vizazi hai 1,000.\nMaana: Kati ya watoto 1,000, 43 wanafariki kabla ya miaka 5.\nVifo vingi hivi VINGEWEZA KUZUILIKA - kliniki, kujifungua hospitali, kunyonyesha, chanjo, kwenda hospitali haraka.";
-}
-else if(l.includes('sababu')&&l.includes('watoto wachanga')||l.includes('kwanini watoto wachanga wanafariki')){
-a="👶 SABABU ZA VIFO KWA WATOTO WACHANGA (0-28 siku):\n1. KUZALIWA KABLA YA WAKATI (Njiti) - 35%: Mapafu hayajakomaa, hawezi kupumua na kupata joto. Suluhisho: Kangaroo, kunyonyesha, hospitali.\n2. KUKOSA HEWA WAKATI WA KUJIFUNGUA (Asphyxia) - 25%: Uchungu mrefu, kitovu shingoni, mama presha. Suluhisho: Kujifungua hospitali.\n3. MAAMBUKIZI / SEPSIS - 20%: Kitovu chafu, mikono michafu, mama na maambukizi. Dalili: homa/baridi, hanyonyi, kitovu usaha.\n4. UZITO MDOGO (chini ya kg 2.5): Mama lishe mbaya, malaria, mimba ya utotoni.\n5. MANJANO MKALI na KASORO ZA KUZALIWA.\n6. BARIDI na KUKOSA MZIWA: Kuwekwa mbali na mama, kuogeshwa maji baridi, kuchelewa kunyonyesha.\nKINGA: Kujifungua hospitali, kangaroo, kunyonyesha saa 1 ya kwanza, usafi wa kitovu, chanjo, hospitali haraka.";
-}
-else if(l.includes('sababu')&&l.includes('mama')&&l.includes('kufariki')||l.includes('mama kufariki baada')){
-a="⚠️ SABABU ZA MAMA KUFARIKI BAADA YA KUJIFUNGUA:\n1. KUTOKWA NA DAMU NYINGI (Postpartum Haemorrhage) - No.1: Kizazi kushindwa kujikaza, damu kama bomba. Kama hakuna dawa na damu haraka, mama anafariki ndani ya masaa 2.\n2. MAAMBUKIZI / SEPSIS: Mikono/vifaa vichafu, kondo lililobaki. Dalili: homa kali, harufu mbaya, tumbo kuuma.\n3. PRESHA (Pre-eclampsia/Eclampsia): Presha kupanda, kifafa, kupoteza fahamu. Dalili: kichwa kuuma, macho ukungu, uso kuvimba.\n4. KUZIBA MISHIPA (Blood Clot): Mguu kuvimba upande mmoja, kuuma, kupumua shida.\n5. KONDO KUBAKI: Damu inaendelea kutoka + maambukizi.\n6. UPUNGUFU WA DAMU: Mama alikuwa na damu kidogo mimba.\n7. KUCHELEWA KUFIKA HOSPITALI: Kujifungulia nyumbani, hakuna gari.\nKINGA: Jifungulie hospitali, kliniki siku 3, wiki 1-2, wiki 6, lishe bora + vidonge vya damu.";
-}
-else if(l.includes('chanjo')||l.includes('bcg')||l.includes('polio')||l.includes('penta')||l.includes('rota')||l.includes('pcv')||l.includes('nyumonia')||l.includes('surua')||l.includes('hpv')||l.includes('tetanus')||l.includes('pepupunda')){
-a="💉 CHANJO ZOTE - MUDA NA SEHEMU:\n1. BCG - Siku ya kuzaliwa (0-14). Mkono wa kushoto juu, ndani ya ngozi. TB.\n2. POLIO OPV - Kuzaliwa, wiki 6,10,14. Kinywa. IPV - wiki 14, Paja la kulia.\n3. PENTA - Wiki 6,10,14. Paja la kushoto. Dondakoo, pepupunda, kifaduro, homa ya ini, homa ya uti.\n4. PCV/NYUMONIA - Wiki 6,10,14. Paja la kulia.\n5. ROTA - Wiki 6 na 10. Kinywa. Kuhara kali.\n6. SURUA/RUBELLA (MR) - Miezi 9 na 18. Mkono wa kushoto juu.\n7. HPV - Wasichana miaka 9-14, dozi 2. Mkono wa juu.\n8. TETANUS kwa Mama Mjamzito - Dozi 5. Mkono wa juu.\nLeta kadi kila kliniki.";
-}
-else if(l.includes('kangaroo')||l.includes('njiti')||l.includes('uzito mdogo')){
-a="👶 KANGAROO KWA MTOTO NJITI:\nKumweka mtoto kifua kwa kifua, ngozi kwa ngozi.\n1. Mweke uchi (na nepi tu) kifuani, kichwa upande, sikio kwenye moyo wako.\n2. Funika kwa kanga, vaa nguo legevu.\n3. Fanya masaa 20-24 kwa siku, hata ukilala. Baba pia anaweza.\n4. Mnyonyeshe kila baada ya saa 2.\n5. Usimuoge maji baridi.\nFAIDA: Joto, kupumua vizuri, kuongezeka uzito, kunyonya vizuri, maambukizi kupungua.\nNenda hospitali kama: hapumui vizuri, baridi sana/moto sana, hanyonyi, rangi bluu.";
-}
-else if(l.includes('maambukizi')||l.includes('ukimwi')||l.includes('kaswende')||l.includes('malaria')||l.includes('uti')||l.includes('kisonono')){
-a="🦠 MAAMBUKIZI - MIMBA, KUJIFUNGUA, KUNYONYESHA:\n1. MIMBA: UTI (kukojoa mara nyingi, kuungua) - dawa + maji. Malaria (homa, baridi) - neti + dawa. HIV - pima mapema, anza ARV. Kaswende/Kisonono (uchafu, vidonda) - dawa wewe na mume. Fungus (kuwashwa) - kliniki.\n2. KUJIFUNGUA: Maji kuvunjika muda mrefu + homa, Sepsis (homa kali, harufu mbaya) - hospitali haraka.\n3. KUNYONYESHA: Mastitis (matiti kujaa, kuuma, homa) - nyonyesha mara nyingi, maji vuguvugu. Kama una HIV endelea kunyonyesha ukiwa kwenye ARV.\nKINGA: Osha mikono, kliniki mara 8, pima HIV na kaswende.";
-}
-else if(l.includes('nyonyesha')||l.includes('kunyonya')||l.includes('kunyonyesha')){
-a="🤱 JINSI YA KUMNYONYESHA MTOTO MCHANGA:\n1. Anza ndani ya saa 1 baada ya kuzaa. Maziwa ya kwanza (colostrum) ni chanjo, usimtupie.\n2. Maziwa ya mama tu miezi 6, hakuna maji, uji, juisi.\n3. Mkao: Tumbo kwa tumbo, kichwa na mwili mstari mmoja, shika matiti mkono wa C.\n4. Nyonyesha mara 8-12 kwa siku, kila saa 2-3 hata usiku.\n5. Nyonyesha titi moja hadi liishe ndipo lingine.\n6. Baada ya kunyonya mweke begani apige mbwe.\nAnashiba kama: Anakojoa 6+ kwa siku, analala vizuri, anaongezeka uzito.";
-}
-else if(l.includes('hatari')&&l.includes('mtoto')||l.includes('dalili')&&l.includes('mtoto')){
-a="⚠️ DALILI ZA HATARI KWA MTOTO MCHANGA (0-28 siku) - HOSPITALI HARAKA:\n1. Hanyonyi kabisa\n2. Homa au baridi sana\n3. Kupumua haraka (60+ kwa dakika) au shida\n4. Kifafa/kutetemeka\n5. Manjano siku za kwanza\n6. Kitovu chekundu, kuvimba, usaha, harufu mbaya\n7. Kuhara/kutapika sana, macho kuingia ndani\n8. Vidonda vingi/usaha\n9. Kulia sana au mlegevu, haamki\n10. Rangi bluu/weupe sana\nUSIGOJE - Mpeleke sasa hivi.";
-}
-else if(l.includes('baada ya kujifungua')||l.includes('baada ya kuzaa')){
-a="⚠️ DALILI ZA HATARI BAADA YA MAMA KUJIFUNGUA - HOSPITALI SASA HIVI:\n1. Damu nyingi sana (pedi 1+ kila saa)\n2. Homa kali 38C+, baridi na kutetemeka\n3. Kichwa kuuma sana, macho ukungu, kizunguzungu, kifafa\n4. Uchafu wenye harufu mbaya sana ukeni\n5. Tumbo kuuma sana na kuvimba\n6. Mguu kuvimba upande mmoja, kuuma, mwekundu, moto\n7. Kupumua shida, kifua kubana\n8. Mkojo kuuma, kukojoa damu\n9. Matiti kujaa, mekundu, kuuma sana + homa\n10. Huzuni sana, kulia kila wakati\nNenda kliniki siku 3, wiki 1-2, wiki 6 baada ya kuzaa.";
-}
-else if(l.includes('mjamzito')&&l.includes('hatari')||l.includes('dalili')&&l.includes('mjamzito')||l.includes('mimba')&&l.includes('hatari')){
-a="⚠️ DALILI ZA HATARI KWA MAMA MJAMZITO - HOSPITALI SASA HIVI:\n1. Kutokwa na damu ukeni\n2. Kichwa kuuma sana, macho ukungu, uso/mikono kuvimba ghafla - PRESHA\n3. Kifafa / kupoteza fahamu\n4. Homa kali, baridi, kutetemeka\n5. Kutapika sana bila kukoma\n6. Maumivu makali ya tumbo, tumbo gumu sana\n7. Maji kuvunjika kabla ya wakati au harufu mbaya / rangi kijani\n8. Mtoto kuacha kucheza tumboni\n9. Kupumua shida, kifua kubana\n10. Kukojoa damu au kutokojoa kabisa\nNenda hospitali leo leo, usingoje kliniki.";
-}
-else if(l.includes('lishe')&&l.includes('mjamzito')||l.includes('lishe')&&l.includes('mimba')||l.includes('nile')&&l.includes('mimba')){
-a="🥗 LISHE KWA MAMA MJAMZITO:\nKULA KILA SIKU: Wanga (ugali, wali, viazi, ndizi), Protini (maharage, mayai, samaki, nyama, maziwa, karanga), Mboga za majani (mchicha, spinachi) kila siku, Matunda (machungwa, ndizi, papai, parachichi).\nMeza vidonge vya damu (Iron + Folic Acid) kila siku.\nMaji glasi 8-10 kwa siku.\nUSILE: Pombe kabisa, sigara, dawa bila daktari, nyama/mayai/maziwa mabichi, chumvi nyingi.\nKama unatapika asubuhi: Kula kidogo mara nyingi, mkate mkavu asubuhi.\nNenda kliniki mara 8.";
-}
-else if(l.includes('lishe')&&l.includes('mtoto')||l.includes('lishe')&&l.includes('mchanga')||l.includes('lishe')&&l.includes('miaka mitano')||l.includes('chakula cha mtoto')){
-else if(l.includes('lishe')){
-a="🥗 LISHE KWA MTOTO: Maziwa ya mama tu miezi 6 ya kwanza. Baada ya miezi 6, anza uji na chakula laini pamoja na kunyonyesha.";
-}
-
-box.innerHTML += '<div class="msg ai">' + a + '</div>';
-document.getElementById('q').value = '';
-box.scrollTop = box.scrollHeight;
+  let q = document.getElementById("q").value.trim();
+  if(!q) return;
+  addMsg(q, "me");
+  document.getElementById("q").value = "";
+  let t = q.toLowerCase();
+  let a = "Samahani, sijaelewa vizuri. Jaribu kuandika: chanjo, mimba, lishe, kunyonyesha, dalili za hatari, uzazi wa mpango.";
+  if(t.includes("chanjo")){ a = "💉 CHANJO ZA MTOTO:\n\n• Siku ya kuzaliwa: BCG na Polio 0\n• Wiki 6: Penta 1, Polio 1, Pneumo 1, Rota 1\n• Wiki 10: Penta 2, Polio 2, Pneumo 2, Rota 2\n• Wiki 14: Penta 3, Polio 3, Pneumo 3, Rota 3\n• Miezi 9: Surua na Rubella 1\n• Miezi 18: Surua na Rubella 2\n\nMpeleke mtoto kliniki kila mara, na ubebe kadi ya chanjo."; }
+  else if(t.includes("mimba")){ a = "🤰 MIMBA:\n\n• Nenda kliniki mara 8 wakati wa ujauzito.\n• Kula lishe bora, lala na chandarua chenye dawa.\n• Meza vidonge vya damu (Iron + Folic) kila siku.\n• Nenda hospitali haraka ukiona damu, maumivu makali, au mtoto hachezi."; }
+  else if(t.includes("lishe")){ a = "🥦 LISHE BORA:\n\n• Kula mchanganyiko: wali, maharage, mboga, matunda, nyama au samaki, maziwa.\n• Kunywa maji mengi.\n• Epuka pombe na sigara kabisa wakati wa mimba na kunyonyesha."; }
+  else if(t.includes("kunyonyesha") || t.includes("maziwa")){ a = "🤱 KUNYONYESHA:\n\n• Mnyonyeshe mtoto maziwa ya mama pekee kwa miezi 6 ya kwanza.\n• Mnyonyeshe ndani ya saa 1 baada ya kujifungua.\n• Mnyonyeshe mara 8-12 kwa siku.\n• Endelea kumnyonyesha hadi miaka 2 na kuongeza vyakula vingine baada ya miezi 6."; }
+  else if(t.includes("hatari") || t.includes("dalili")){ a = "⚠️ DALILI ZA HATARI - NENDA HOSPITALI HARAKA:\n\nMama: damu nyingi, homa kali, kichwa kuuma sana, macho kufifia, mikono na uso kuvimba, maji kutoka kabla ya wakati.\n\nMtoto: homa kali, kushindwa kunyonya, kupumua kwa shida, kuhara na kutapika sana, kitovu kuvimba au kutoa usaha."; }
+  else if(t.includes("uzazi") || t.includes("mpango") || t.includes("familia")){ a = "👨‍👩‍👧 UZAZI WA MPANGO:\n\n• Kuna njia nyingi: sindano, vidonge, kipandikizi, kitanzi, kondomu.\n• Nenda kliniki uongee na muuguzi akuchagulie inayokufaa.\n• Kupanga uzazi kunamkinga mama na mtoto, na kunasaidia familia kulea vizuri."; }
+  else if(t.includes("salamu") || t.includes("habari") || t.includes("mambo")){ a = "Habari! Niko vizuri, karibu sana. Uliza swali kuhusu chanjo, mimba, lishe au kunyonyesha."; }
+  addMsg(a, "bot");
 }
 </script>
 </body>
