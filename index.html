@@ -48,7 +48,31 @@ function send(){
   else if(q.includes("chanjo") || q.includes("surua") || q.includes("measles")){
     reply="💉 CHANJO ZOTE ZA MTOTO - MUDA NA SEHEMU YA MWILI:\n\n1. SIKU YA KUZALIWA:\n• BCG - Bega la kushoto, kwenye ngozi. Inazuia Kifua Kikuu.\n• Polio 0 - Matone mdomoni. Inazuia Polio.\n\n2. WIKI 6 (Mwezi 1 na nusu):\n• Pentavalent 1 - Paja la kushoto. Inazuia Diphtheria, Pepopunda, Kifaduro, Hepatitis B, Hib.\n• PCV 1 - Paja la kulia. Inazuia Nimonia na Uti wa mgongo.\n• Polio 1 - Matone mdomoni.\n• Rotavirus 1 - Matone mdomoni. Inazuia Kuhara kali.\n\n3. WIKI 10:\n• Pentavalent 2 - Paja la kushoto.\n• PCV 2 - Paja la kulia.\n• Polio 2 - Matone mdomoni.\n• Rotavirus 2 - Matone mdomoni.\n\n4. WIKI 14:\n• Pentavalent 3 - Paja la kushoto.\n• PCV 3 - Paja la kulia.\n• Polio 3 - Matone mdomoni.\n• IPV - Paja, sindano. Inazuia Polio.\n\n5. MIEZI 9:\n• Measles Rubella 1 (Surua) - Mkono wa kushoto juu, kwenye ngozi. Inazuia Surua na Rubella.\n• Vitamin A - Matone mdomoni.\n\n6. MIEZI 18:\n• Measles Rubella 2 - Mkono wa kushoto juu.\n• Vitamin A - Matone mdomoni.\n\n👉 UKIKOSA CHANJO: Nenda kliniki haraka, usisubiri tarehe nyingine.\n👉 BAADA YA CHANJO: Sehemu ya kuchomwa inaweza kuvimba kidogo na mtoto kupata homa kidogo. Mnyonyeshe sana. Usipake chochote. Homa ikizidi, nenda kliniki.";
   }
-
+  // ZIADA MPYA - 7 MASWALI MAPYA
+  else if(q.includes("uzazi salama")){
+    reply="🤰 UZAZI SALAMA NI NINI?\n\n• Ni kujifungua HOSPITALI au KITUO CHA AFYA, mbele ya mkunga au daktari, SI NYUMBANI.\n• Ni kwenda kliniki mara 8 wakati wa mimba.\n• Ni kupata chanjo na vipimo wakati wa mimba.\n• Ni kuwa na mpango wa usafiri na pesa ya dharura.\n\n👉 Uzazi salama unaokoa maisha mawili: ya mama na ya mtoto.";
+  }
+  else if(q.includes("muda gani") && q.includes("kunyonya") || q.includes("anapaswa kunyonya")){
+    reply="🤱 JE MTOTO ANAPASWA KUNYONYA MUDA GANI?\n\n• Miezi 6 ya kwanza: Maziwa ya mama TU. Hakuna maji, hakuna uji.\n• Mwezi wa 6 hadi miaka 2: Endelea kumnyonyesha + mpe chakula kingine.\n• Kila mara: Kila ziwa dakika 10-15 au hadi ashibe.\n• Mara ngapi: Mara 8-12 kwa siku, hata usiku.";
+  }
+  else if(q.includes("maziwa ya mwanzo") || q.includes("faida za maziwa") || q.includes("kolostramu")){
+    reply="💛 FAIDA ZA MAZIWA YA MWANZO (KOLOSTRAMU):\n\n• Ni maziwa ya kwanza ya manjano, siku 1-3 baada ya kujifungua.\n• Ni CHANJO YA KWANZA ya mtoto - yanampa kinga.\n• Yanamsaidia kupata choo cha kwanza na kuondoa manjano.\n\n⚠️ USIYATUPE! Sio machafu, ni dawa. Mnyonyeshe mtoto ndani ya saa 1 baada ya kuzaliwa.";
+  }
+  else if(q.includes("cancer") || q.includes("saratani")){
+    reply="🎗️ CANCER (SARATANI) NI NINI?\n\n• Ni seli za mwili kukua haraka bila mpangilio na kuharibu sehemu nyingine.\n• Kwa mama: saratani ya shingo ya kizazi na ya matiti ndizo zinazojulikana zaidi.\n• Dalili: Kutokwa damu isiyo ya kawaida, kidonda kisichopona, uvimbe kwenye matiti.\n\n👉 Nenda kliniki kupimwa mapema. Ukigundulika mapema, unatibika.";
+  }
+  else if(q.includes("jinsi") || q.includes("jinsia")){
+    reply="👧👦 JINSI NA JINSIA NI NINI?\n\n• JINSI: Tofauti ya mwili mtu anazaliwa nayo - msichana au mvulana.\n• JINSIA: Majukumu na matarajio jamii inawapa wanawake na wanaume. Mfano 'wasichana wanapika' - hizo ni za kijinsia, sio za kuzaliwa nazo.\n• Wote wana haki sawa ya elimu, afya, chakula na upendo.";
+  }
+  else if(q.includes("unyanyasaji")){
+    reply="🛡️ UNYANYASAJI WA KIJINSIA NI NINI?\n\n• Ni kumfanyia mtu jambo baya kuhusiana na mwili wake bila ridhaa yake. Mfano: Kumgusa sehemu za siri bila kukubali, kumtishia, kumlazimisha.\n• Hii ni KOSA, sio kosa la aliyefanyiwa.\n• Kama imetokea: Mwambie mtu unayemwamini HARAKA na nenda kituo cha afya SIKU HIYO HIYO.";
+  }
+  else if(q.includes("unyanyapaa")){
+    reply="💔 UNYANYAPAA NI NINI?\n\n• Ni kumdharau, kumsema vibaya, kumtenga mtu kwa sababu ya ugonjwa au kilichomfanyikia. Mfano: Kumtenga mama mwenye VVU.\n• Unyanyapaa unamfanya mtu aogope kwenda kliniki.\n• Badala yake: Msikilize, mpe upendo, msaidie kwenda kliniki.";
+  }
+  else if(q.includes("mume") && q.includes("mjamzito") || q.includes("anakutana na mume")){
+    reply="🤰 MAMA MJAMZITO - KUKUTANA NA MUME, HADI MIEZI MINGAPI?\n\n• Kama mimba haina shida, anaweza kuendelea hadi mwisho wa mimba.\n• Hakuna mwezi wa lazima wa kuacha, kama daktari hajamwambia aache.\n• Epuka kama: Anatokwa damu, maumivu makali, maji yametoka, daktari amemwambia apumzike.\n• Baada ya kujifungua: Subiri wiki 6 hadi daktari amruhusu.";
+  }
   // 2. KANGAROO
   else if(q.includes("kangaroo") || q.includes("njiti")){
     reply="🦘 HUDUMA YA KANGAROO KWA MTOTO NJITI (aliyezaliwa kabla ya wakati):\n\n1. NGOZI KWA NGOZI:\n• Mvulie mtoto nguo, abaki na nepi tu.\n• Mweke kifuani kwako, tumbo lake liguse kifua chako.\n• Vaa shati kubwa au kanga inayomfunika mgongoni.\n• Fanya hivi masaa mengi kwa siku, hata masaa 20. Mama ndiye bora, baba anaweza pia.\n\n2. JOTO:\n• Kangaroo inampa mtoto joto la mwili wako. Usimfunike uso, ili apumue vizuri.\n• Usimwogesha kwa maji baridi.\n\n3. KUNYONYESHA:\n• Mnyonyeshe kila baada ya saa 1-2, hata usiku. Maziwa ya mama ndiyo dawa yake kubwa.\n• Kama hanyonyi vizuri, kamua maziwa umpe kwa kijiko safi.\n\n4. KUMUANGALIA:\n• Angalia kama anapumua vizuri, ananyonyesha, anakojoa na kujisaidia.\n• Mpime uzito kliniki mara kwa mara.\n\n⚠️ NENDA HOSPITALI HARAKA KAMA:\n• Anapoa sana au ana joto kali\n• Hapumui vizuri, anapumua haraka au anashindwa kupumua\n• Hanyonyi kabisa\n• Anakuwa mweusi, mweupe au manjano sana\n• Anatetemeka au anapata degedege";
